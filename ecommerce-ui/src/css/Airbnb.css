@@ -1,0 +1,33 @@
+.airbnb-wrap {
+    margin-bottom: 50px;
+}
+    .airbnb-wrap-inner .col:first-of-type {
+        padding-left: 0;
+    }
+        .airbnb-content-holder {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-right: 30px;
+        }
+            /* .airbnb-content-holder .lead {
+                min-height: 60px;
+            } */
+            .image-holder {
+                position: relative;
+            }
+                .image-holder .badge {
+                    bottom: 10px;
+                    right: 10px;
+                }
+            .card-img-top {
+                height: 200px;
+            }
+            .review-icon {
+                margin-right: 2px;
+            }
+            /* .reviews-holder {
+                text-align: right;
+            } */
+            .airbnb-content-holder .btn {
+                width: 100%;
+            }
