@@ -4,6 +4,7 @@ import './css/Cart.css';
 import airbnbs from './_data/airbnbs.json';
 import Airbnb from './Airbnb';
 import Cart from './Cart';
+import Nav from './Nav';
 
 function App() {
   return (
@@ -12,19 +13,19 @@ function App() {
         <div className="col-sm">
           <div className="airbnbs">
             <h1 className="display-3 mb-5 mt-4">Stays for you</h1>
-            <div className="airbnbs-holder d-flex">
+            <div className="airbnbs-holder d-flex mb-5">
               {airbnbs.map((airbnb, idx) => {
                 return <Airbnb airbnb={airbnb} key={idx} />
               })}
             </div>
-            <div className="cart-holder">
-              {<Cart />}
-            </div>
+            {/* <div className="cart-holder mb-5"> */}
+              {/* <Cart /> */}
+            {/* </div> */}
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default App;

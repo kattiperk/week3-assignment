@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 class Airbnb extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            airbnbs: [],
+        }
+    }
+
     static propTypes = {
         airbnb: PropTypes.shape({
             title: PropTypes.string,
@@ -28,43 +35,32 @@ class Airbnb extends Component {
         })
     }
 
+    
+
+
     // state = { inBookmarks: false }
 
-    rentThisPlace = () => {
-        // console.log('I was clicked');
-        return `${this.props.airbnb.title} ${this.props.airbnb.payment.cost}`
-        // this.setState({
-        //     inBookmarks: !this.state.inBookmarks
-        // })
+    addToCart = () => {
+
+        /*
+        let cart = localStorage.getItem('cart') 
+                      ? JSON.parse(localStorage.getItem('cart')) : {};
+        const getPrice = this.props.airbnb.payment.cost;
+        const getTitle = this.props.airbnb.title;
+        cart = `$${getPrice} at ${getTitle}`;
+        let total = getPrice;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        console.log(`You added: ${cart}`);
+        console.log(`Total is: ${total}`); */
     }
     
     render() {
-        // async function addToCart(id, quantity) {
-        //     try {
-        //       const response = await fetch("http://localhost:3000/cart", {
-        //         method: "POST",
-        //         body: JSON.stringify({
-        //           productId: id,
-        //           quantity: quantity,
-        //         }),
-        //         headers: {
-        //           "Content-type": "application/json; charset=UTF-8",
-        //         },
-        //       });
-        //       let data = await response.json();
-        //       alert("Item Added To Cart");
-        //       console.log(data);
-        //     } catch (err) {
-        //       alert("Something Went Wrong");
-        //       console.log(err);
-        //     }
-        //   }
-
+        const isSuperhost = this.props.airbnb.host.isSuperhost ? 'isSuperhost' : 'notSoperhost';
         return (
-            <div className="bg-light bg-gradient airbnb-wrap">
-                <div className="airbnb-wrap-inner card">
+            <div className="airbnb-wrap">
+                <div className="airbnb-wrap-inner mr-2 ml-2 card">
                     <div className="image-holder">
-                        <mark className="position-absolute top-0 start-0">is {this.props.airbnb.host.isSuperhost}</mark>
+                        <mark className={`position-absolute top-0 start-0 pl-2 pr-2 isNotsuperhost ${isSuperhost}`}>SUPERHOST</mark>
                         <span className="position-absolute bottom-50 end-0 badge bg-danger text-white">
                                 {this.props.airbnb.payment.description}
                             </span>
@@ -96,7 +92,7 @@ class Airbnb extends Component {
                             
                         </div>
                         
-                        <button type="button" onClick={this.rentThisPlace()} className="btn btn-success">Rent this place</button>
+                        <button type="button" onClick={this.addToCart} className="btn btn-success">Rent this place</button>
                         
                     </div>
                 </div>

@@ -31,3 +31,11 @@
             .airbnb-content-holder .btn {
                 width: 100%;
             }
+            .isNotsuperhost {
+                display: none;
+                visibility: visible;
+            }
+            .isSuperhost {
+                display: block;
+                visibility: visible;
+            }
