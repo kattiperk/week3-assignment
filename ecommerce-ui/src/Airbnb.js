@@ -47,7 +47,7 @@ export default function Airbnb ( {addToCart} ) {
 
         return (
             <div>
-      <h1 className="display-3 mb-5 mt-4">Stays for you</h1>
+      <h1 className="display-3 mb-5 mt-5">Stays for you</h1>
       <div className="airbnbs-holder d-flex mb-5">
             
                 {airbnbs.map((airbnb, idx) => (

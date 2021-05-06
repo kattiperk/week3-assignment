@@ -18,7 +18,6 @@ export default function Cart ({cart, removeFromCart}) {
                                 {airbnb.payment.description}
                             </span>
                   <p className="mb-3 mt-1">${airbnb.payment.cost} / night</p>
-                  <p>total: $</p>
                 </div>
                 <div className="price-holder align-self-top mb-2">
                 <button type="button" onClick={() => removeFromCart(airbnb)} className="btn btn-success">Remove</button>

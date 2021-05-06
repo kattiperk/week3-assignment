@@ -7,6 +7,7 @@ import Airbnb from './Airbnb';
 import Cart from './Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 // import Nav from './Nav';
 
 const PAGE_AIRBNBS = 'airbnbs';
@@ -28,14 +29,8 @@ function App() {
     setPage(nextPage);
   }
 
-  const totalCount = () => {
-    // let total = 1;
-    // const price = {airbnb.payment.cost};
-    // total =+ total;
-  }
-
   const getTotalSum = () => {
-    return (cart.reduce((sum, { cost } ) => sum + cost, 0))
+    return cart.reduce((sum, { payment: { cost }}) => sum + cost, 0);
   }
 
   return (
@@ -43,7 +38,7 @@ function App() {
       <div className="row">
         <div className="col-sm">
           <div className="airbnbs">
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
               <div className="container-fluid">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
@@ -55,7 +50,7 @@ function App() {
                     </li>
                     <li>
                     <a href="/" className="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                      Cart ({cart.length})
+                    <FontAwesomeIcon icon={faShoppingCart} /> ({cart.length})
                     </a>
                     </li>
                     {/* <li className="nav-item dropdown">
@@ -93,7 +88,7 @@ function App() {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <Cart cart={cart} removeFromCart={removeFromCart} totalCount={totalCount} />
+                    <Cart cart={cart} removeFromCart={removeFromCart} />
                   </div>
                   <div className="modal-footer">
                   <h4 className="display-4 mb-1 mt-1" id="exampleModalLabel">Total: {getTotalSum()}</h4>
