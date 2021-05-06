@@ -1,3 +1,16 @@
 /* .cart-holder {
     position: absolute;
 } */
+
+.airbnbs .modal-dialog {
+    min-width: 50%;
+}
+    .airbnbs .dropdown {
+        position: inherit;
+    }
+    .cart .airbnb-wrap {
+        margin-bottom: 0;
+    }
+    .cart .airbnb-wrap + .airbnb-wrap {
+        border-top: 1px solid #dee2e6;
+    }

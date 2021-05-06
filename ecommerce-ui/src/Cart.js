@@ -1,61 +1,31 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-// import Airbnb from './Airbnb.js';
+import React from 'react';
 
-class Cart extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            airbnb: [],
-            total: 0
-        }
-      }
+export default function Cart ({cart, removeFromCart}) {
 
-
-    static propTypes = {
-        airbnb: PropTypes.shape({
-            payment: PropTypes.shape({
-                cost: PropTypes.number,
-            }),
-        })
-    }
-
-    componentDidMount() {
-        let cart = localStorage.getItem('cart');
-        console.log(cart)
-      }
-    
-    render() {
-        let cart = localStorage.getItem('cart');
-    //   let total = this.props.airbnb.payment.cost;
-    //   let tax = (this.props.total * 0.15).toFixed(2);
-    //   let totalIncTax = (+total + +tax).toFixed(2);
-    //   let mystyle = {
-    //     borderTop: "1px solid #ddd",
-    //     marginTop: "10px"
-    //   };
-
-      return (
-        <div className="container cart-wrapper">
-          <h3 className="row" style={{ fontWeight: 400 }}>
-            <span className="col-6">You have added: {cart}</span>
-            <div>
-            <span className="col-6 text-right"></span>
-            </div>
-          </h3>
-          <h3 className="row" style={{ fontWeight: 400 }}>
-            <span className="col-6">Tax (15%):</span>
-            <span className="col-6 text-right"></span>
-          </h3>
-          <h3 className="row">
-            <span className="col-6">Total:</span>
-            <span className="col-6 text-right"></span>
-          </h3>
+  // const getTotalSum = () => {
+  //   return (cart.reduce((sum, { cost }) => sum + cost, 0))
+  // }
   
+    return(
+      <div className="cart">
+        <p className="mb-0">{cart.length === 0 ? 'Your cart is empty' : ''}</p>
+        <div className="airbnbs-holder">
+          {cart.map((airbnb, idx) => (
+          <div className="airbnb-wrap d-flex justify-content-between align-items-top pt-3 pb-0 pr-0" key={idx}>
+                <div className="pr-3">
+                  <h4 className="h4 mb-1">{airbnb.title}</h4>
+                  <span className="badge bg-danger text-white">
+                                {airbnb.payment.description}
+                            </span>
+                  <p className="mb-3 mt-1">${airbnb.payment.cost} / night</p>
+                  <p>total: $</p>
+                </div>
+                <div className="price-holder align-self-top mb-2">
+                <button type="button" onClick={() => removeFromCart(airbnb)} className="btn btn-success">Remove</button>
+          </div>
         </div>
-        
-      )
-    }
-  }
-
-export default Cart
+      ))}
+      </div>
+    </div>  
+  )
+}
