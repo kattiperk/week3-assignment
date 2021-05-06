@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Airbnb from './Airbnb';
-import Cart from './Cart';
-import './css/App.css';
-import './css/Airbnb.css';
-import './css/Cart.css';
+import Airbnb from './components/Airbnb';
+import Cart from './components/Cart';
+import './components/css/App.css';
+import './components/css/Airbnb.css';
+import './components/css/Cart.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
