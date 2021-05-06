@@ -1,13 +1,6 @@
-/* .cart-holder {
-    position: absolute;
-} */
-
 .airbnbs .modal-dialog {
     min-width: 50%;
 }
-    .airbnbs .dropdown {
-        position: inherit;
-    }
     .cart .airbnb-wrap {
         margin-bottom: 0;
     }

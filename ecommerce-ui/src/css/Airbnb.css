@@ -10,9 +10,6 @@
             padding-bottom: 30px;
             padding-right: 30px;
         }
-            /* .airbnb-content-holder .lead {
-                min-height: 60px;
-            } */
             .image-holder {
                 position: relative;
             }
@@ -26,9 +23,6 @@
             .review-icon {
                 margin-right: 2px;
             }
-            /* .reviews-holder {
-                text-align: right;
-            } */
             .airbnb-content-holder .btn {
                 width: 100%;
             }
